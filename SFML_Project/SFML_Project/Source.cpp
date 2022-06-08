@@ -1,7 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Network.hpp>
 #include <iostream>
-#include "Utility/Timer.h"
 
 struct RandPacket
 {
@@ -21,7 +20,6 @@ int main()
   if (listener.listen(4444) != sf::Socket::Done)
   {
     std::cout << "Cannot listen!\n";
-    system("pause");
     return 1;
   }
 
@@ -29,7 +27,6 @@ int main()
   if (listener.accept(client) != sf::Socket::Done)
   {
     std::cout << "Cannot accept client!\n";
-    system("pause");
     return 1;
   }
 
@@ -44,7 +41,6 @@ int main()
       client.disconnect();
       break;
     }
-    Sleep(500);
     size_t dataRecieved = 0;
 
     if (client.receive(&rnd, sizeof(rnd), dataRecieved) != sf::Socket::Done)
@@ -55,7 +51,7 @@ int main()
     }
 
     res.value = rand() % (rnd.max + 1) + rnd.min;
-    
+
     if (client.send(&res, sizeof(res)) != sf::Socket::Done)
     {
       std::cout << "Failed to send!\n";
