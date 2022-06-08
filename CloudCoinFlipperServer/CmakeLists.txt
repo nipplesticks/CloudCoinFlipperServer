@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.0)
 
-SET(CMAKE_BUILD_TYPE release)
+set(CMAKE_BUILD_TYPE Release)
 
 add_subdirectory("SFML-2.5.1")
 
@@ -17,4 +17,3 @@ target_include_directories(CloudCoinFlipperServer PUBLIC
 						   "${PROJECT_BINARY_DIR}"
 						   "${PROJECT_SOURCE_DIR}/SFML-2.5.1/include"
 						   )
-install(TARGETS CloudCoinFlipperServer DESTINATION bin)

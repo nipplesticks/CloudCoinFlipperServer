@@ -1,1 +1,1 @@
-# SFML_SETUP
+# Server side of CloudCoinFlipper
